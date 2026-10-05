@@ -1,139 +1,247 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rijtech Engenharia | Redes, CFTV e Automação em Belém</title>
-    <!-- Tailwind CSS para estilização rápida e moderna -->
+    <title>RIJTECH Engenharia | Redes, CFTV, Fibra e Cabeamento em Belém</title>
+    <meta name="description" content="RIJTECH Engenharia em Belém: redes, cabeamento estruturado, fibra óptica, Wi-Fi profissional, CFTV IP, infraestrutura de TI e soluções de IA.">
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            900: '#020617',
+                            800: '#0F172A',
+                            700: '#1E3A8A',
+                            600: '#2563EB',
+                            success: '#16A34A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans">
+<body class="bg-brand-900 text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white">
 
-    <!-- Header / Hero Section -->
-    <header class="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 py-20 border-b border-slate-800">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <span class="text-blue-400 font-semibold tracking-wider uppercase text-sm">Engenharia de Alta Performance em Belém</span>
-            <h1 class="text-4xl md:text-6xl font-bold mt-3 mb-6 tracking-tight">
-                Segurança Eletrônica e Redes Robustas para o seu Negócio
-            </h1>
-            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-8">
-                Especialistas em CFTV IP de alta resolução, cabeamento estruturado, Wi-Fi corporativo e soluções inteligentes com Visão Computacional.
-            </p>
-            
-            <!-- Botões de Ação Principal (WhatsApp e Produtos) -->
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="https://wa.me/5591993181583?text=Olá,%20vi%20o%20site%20da%20Rijtech%20e%20gostaria%20de%20agendar%20uma%20auditoria%20técnica%20gratuita." target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl text-base shadow-lg transition-all inline-flex items-center gap-2">
-                    💬 Agendar Auditoria Técnica
-                </a>
-                <a href="produtos.html" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-3.5 rounded-xl text-base transition-all inline-flex items-center gap-2 shadow-lg">
-                    🛒 Ver Nossos Produtos e Kits
-                </a>
-            </div>
+    <!-- HEADER / NAVBAR -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-brand-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="/" class="flex items-center space-x-2">
+                <span class="text-2xl font-black tracking-wider text-white">RIJTECH<span class="text-brand-600">.</span></span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#servicos" class="hover:text-brand-600 transition-colors">Serviços</a>
+                <a href="#ia" class="hover:text-brand-600 transition-colors text-brand-600 font-bold">✨ IA & CFTV</a>
+                <a href="#cases" class="hover:text-brand-600 transition-colors">Cases</a>
+                <a href="produtos.html" class="hover:text-brand-600 transition-colors">Produtos e Kits</a>
+                <a href="#orcamento" class="bg-brand-600 hover:bg-blue-600 text-white px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-blue-900/30">Orçamento</a>
+            </nav>
+            <button id="menu-btn" class="md:hidden text-slate-300 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-800 border-b border-slate-700 px-6 py-4 space-y-3">
+            <a href="#servicos" class="block text-slate-200 hover:text-white">Serviços</a>
+            <a href="#ia" class="block text-brand-400 font-bold">✨ IA & CFTV</a>
+            <a href="#cases" class="block text-slate-200 hover:text-white">Cases</a>
+            <a href="produtos.html" class="block text-slate-200 hover:text-white">Produtos e Kits</a>
+            <a href="#orcamento" class="block bg-brand-600 text-white text-center py-2.5 rounded-xl">Orçamento</a>
         </div>
     </header>
 
-    <!-- Seção de Serviços -->
-    <section class="py-16 max-w-5xl mx-auto px-6">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-white">Nossas Soluções Especializadas</h2>
-            <p class="text-slate-400 mt-2">Tecnologia de ponta com o rigor técnico de grandes operações.</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-2xl">
-                <div class="text-3xl mb-4">📷</div>
-                <h3 class="text-xl font-bold mb-2 text-blue-400">CFTV IP Inteligente</h3>
-                <p class="text-slate-300 text-sm">
-                    Instalação e configuração de câmeras em alta resolução com acesso remoto direto no seu telemóvel e zero falhas de gravação.
-                </p>
-            </div>
-
-            <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-2xl">
-                <div class="text-3xl mb-4">🌐</div>
-                <h3 class="text-xl font-bold mb-2 text-blue-400">Redes & Fibra Óptica</h3>
-                <p class="text-slate-300 text-sm">
-                    Cabeamento estruturado, fusão de fibra óptica e Wi-Fi corporativo de alta performance para condomínios, clínicas e empresas.
-                </p>
-            </div>
-
-            <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-2xl">
-                <div class="text-3xl mb-4">🤖</div>
-                <h3 class="text-xl font-bold mb-2 text-blue-400">Visão Computacional & IA</h3>
-                <p class="text-slate-300 text-sm">
-                    Transforme as suas câmeras comuns em sistemas inteligentes de contagem automática, fluxo de pessoas e análise de dados em tempo real.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Secção da Galeria de Trabalhos Realizados -->
-    <section class="py-16 bg-slate-950/50 border-t border-slate-800">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
-                <div>
-                    <h2 class="text-3xl font-bold text-white">Galeria de Trabalhos</h2>
-                    <p class="text-slate-400 mt-1">Registo prático das nossas instalações de redes e segurança em Belém.</p>
-                </div>
-                <a href="https://wa.me/5591993181583?text=Olá,%20quero%20enviar%20uma%20nova%20foto%20de%20trabalho%20para%20atualizar%20o%20portfólio." target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition-all inline-flex items-center gap-2">
-                    ➕ Adicionar Nova Foto via WhatsApp
+    <!-- HERO -->
+    <section class="pt-32 pb-20 md:pt-44 md:pb-32 bg-gradient-to-b from-brand-900 via-brand-800 to-brand-900 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full text-xs font-semibold bg-brand-700/40 text-blue-400 border border-blue-500/30 mb-6">
+                📍 Belém, Ananindeua e Região Metropolitana
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight max-w-4xl mx-auto leading-tight">
+                Tecnologia que conecta. <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-brand-600">Engenharia que entrega.</span>
+            </h1>
+            <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                Redes, cabeamento estruturado, fibra óptica, Wi-Fi profissional, CFTV IP, infraestrutura de TI e soluções inteligentes com Inteligência Artificial.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#orcamento" class="bg-brand-600 hover:bg-blue-600 text-white font-bold px-8 py-4 rounded-xl transition-all shadow-xl shadow-blue-900/40 text-center">
+                    Solicitar Orçamento
+                </a>
+                <a href="#servicos" class="bg-slate-800 hover:bg-slate-700 text-white font-medium px-8 py-4 rounded-xl transition-all border border-slate-700 text-center">
+                    Ver Nossos Serviços
                 </a>
             </div>
+        </div>
+    </section>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden shadow-md">
-                    <div class="h-48 bg-slate-700 flex items-center justify-center text-slate-400 text-sm">
-                        [Foto de Rack / Cabeamento]
-                    </div>
-                    <div class="p-4">
-                        <h4 class="font-semibold text-white text-sm">Organização de Rack Técnico</h4>
-                        <p class="text-slate-400 text-xs mt-1">Infraestrutura corporativa em Belém - PA</p>
-                    </div>
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Soluções Especializadas em Infraestrutura</h2>
+            <p class="mt-4 text-slate-400">Padrão de engenharia rigoroso para garantir estabilidade, segurança e alto desempenho ao seu negócio.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 hover:border-blue-500 transition-all group">
+                <div class="text-4xl mb-4">📡</div>
+                <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Redes e Cabeamento</h3>
+                <p class="text-slate-400 text-sm mt-2">Projeto, montagem de racks, certificação e identificação de redes estruturadas empresariais.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 hover:border-blue-500 transition-all group">
+                <div class="text-4xl mb-4">🔵</div>
+                <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Fibra Óptica</h3>
+                <p class="text-slate-400 text-sm mt-2">Lançamento, fusão, conectorização e diagnóstico completo de enlaces ópticos de alta velocidade.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 hover:border-blue-500 transition-all group">
+                <div class="text-4xl mb-4">📹</div>
+                <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">CFTV IP Avançado</h3>
+                <p class="text-slate-400 text-sm mt-2">Sistemas de videomonitoramento de alta definição com acesso remoto seguro via telemóvel.</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 hover:border-blue-500 transition-all group">
+                <div class="text-4xl mb-4">🖥️</div>
+                <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Infraestrutura de TI</h3>
+                <p class="text-slate-400 text-sm mt-2">Servidores Linux/Windows, Docker, firewalls, backups e monitoramento com Zabbix e Grafana.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO IA + CFTV -->
+    <section id="ia" class="py-20 bg-gradient-to-r from-blue-950/40 via-brand-800/60 to-brand-900 border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-900/40 px-3 py-1 rounded-full border border-blue-500/30">Inovação RIJTECH</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-4">Transforme câmeras comuns em inteligência de negócios.</h2>
+                <p class="mt-4 text-slate-300 leading-relaxed">
+                    Soluções avançadas de visão computacional integradas ao CFTV para extrair dados úteis, gerar alertas automáticos e otimizar a operação da sua empresa.
+                </p>
+                <ul class="mt-6 space-y-3 text-sm text-slate-200">
+                    <li class="flex items-center gap-2">✅ Contagem automática de pessoas e fluxo</li>
+                    <li class="flex items-center gap-2">✅ Análise de ocupação e detecção de eventos</li>
+                    <li class="flex items-center gap-2">✅ Dashboards executivos e indicadores operacionais</li>
+                </ul>
+                <div class="mt-8">
+                    <a href="https://wa.me/5591993181583?text=Olá,%20tenho%20interesse%20em%20CFTV%20com%20Inteligência%20Artificial." target="_blank" class="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3 rounded-xl transition-all shadow-lg">
+                        Conhecer Soluções com IA
+                    </a>
                 </div>
-
-                <!-- Card 2 -->
-                <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden shadow-md">
-                    <div class="h-48 bg-slate-700 flex items-center justify-center text-slate-400 text-sm">
-                        [Foto de Câmeras CFTV IP]
-                    </div>
-                    <div class="p-4">
-                        <h4 class="font-semibold text-white text-sm">Instalação de CFTV IP 4K</h4>
-                        <p class="text-slate-400 text-xs mt-1">Segurança avançada para condomínio</p>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden shadow-md">
-                    <div class="h-48 bg-slate-700 flex items-center justify-center text-slate-400 text-sm">
-                        [Foto de Teste de Visão Computacional]
-                    </div>
-                    <div class="p-4">
-                        <h4 class="font-semibold text-white text-sm">Monitoramento com IA (RIJLAB)</h4>
-                        <p class="text-slate-400 text-xs mt-1">Análise de fluxo em tempo real</p>
-                    </div>
+            </div>
+            <div class="bg-slate-800/90 border border-slate-700 rounded-3xl p-8 shadow-2xl">
+                <div class="text-sm font-mono text-blue-400 mb-2"># RIJLAB_VISION_ENGINE</div>
+                <h3 class="text-xl font-bold text-white mb-4">Monitoramento Inteligente Ativo</h3>
+                <p class="text-slate-400 text-sm mb-6">Integração robusta com plataformas de automação (n8n, Docker e APIs personalizadas) para alerta imediato em tempo real.</p>
+                <div class="bg-slate-900 rounded-xl p-4 font-mono text-xs text-emerald-400 border border-slate-800">
+                    [INFO] Status: Ativo<br>
+                    [AI] Evento detetado: Fluxo normal de operação.<br>
+                    [SECURE] Stream IP: Câmera Principal - OK.
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action / Oferta -->
-    <section class="bg-blue-950/40 border-y border-slate-800 py-16">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-4">Garanta o Diagnóstico da sua Infraestrutura</h2>
-            <p class="text-slate-300 mb-8 max-w-xl mx-auto">
-                Oferecemos uma visita técnica diagnóstica gratuita em Belém e Região Metropolitana para identificar gargalos de rede e falhas de segurança.
-            </p>
-            <a href="https://wa.me/5591993181583?text=Olá,%20gostaria%20de%20solicitar%20o%20diagnóstico%20técnico%20gratuito." target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all inline-block">
-                Falar com Engenheiro no WhatsApp
-            </a>
+    <!-- CASES -->
+    <section id="cases" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Projetos e Aplicações Reais</h2>
+            <p class="mt-4 text-slate-400">Padrão rigoroso de acabamento e engenharia em cada instalação realizada em Belém.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-6">
+                <div class="text-lg font-bold text-white mb-2">🗄️ Organização de Racks</div>
+                <p class="text-slate-400 text-sm">Organização, identificação e certificação de infraestrutura de rede corporativa e patch panels.</p>
+            </div>
+            <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-6">
+                <div class="text-lg font-bold text-white mb-2">📹 CFTV IP Profissional</div>
+                <p class="text-slate-400 text-sm">Instalação de centrais de gravação e câmeras de alta definição com acesso remoto via app.</p>
+            </div>
+            <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-6">
+                <div class="text-lg font-bold text-white mb-2">🔬 RIJLAB + IA</div>
+                <p class="text-slate-400 text-sm">Laboratório próprio de testes, automação e visão computacional aplicada à segurança e redes.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Rodapé -->
-    <footer class="py-8 text-center text-slate-500 text-sm border-t border-slate-800">
-        <p>&copy; 2026 Rijtech Engenharia. Todos os direitos reservados.</p>
-        <p class="mt-1">Belém - Pará | WhatsApp: (91) 99318-1583</p>
+    <!-- FORMULÁRIO DE ORÇAMENTO -->
+    <section id="orcamento" class="py-20 bg-brand-800/50 border-t border-slate-800">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-white">Solicite Seu Orçamento</h2>
+                <p class="mt-2 text-slate-400">Preencha os dados abaixo para iniciar o atendimento direto via WhatsApp com a nossa equipa técnica.</p>
+            </div>
+            <form id="budget-form" class="bg-slate-800 border border-slate-700 rounded-3xl p-8 shadow-2xl space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">Nome / Empresa *</label>
+                    <input type="text" id="nome" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-600">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">WhatsApp *</label>
+                        <input type="tel" id="telefone" required placeholder="(91) 99999-9999" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-600">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Serviço Desejado *</label>
+                        <select id="servico" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-600">
+                            <option value="CFTV">CFTV e Segurança</option>
+                            <option value="Redes / Cabeamento">Redes / Cabeamento Estruturado</option>
+                            <option value="Fibra Óptica">Fibra Óptica</option>
+                            <option value="Wi-Fi">Wi-Fi Profissional</option>
+                            <option value="Infraestrutura de TI">Infraestrutura de TI</option>
+                            <option value="IA / Visão Computacional">IA / Visão Computacional</option>
+                            <option value="Outro">Outro Serviço</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">Cidade / Bairro</label>
+                    <input type="text" id="cidade_bairro" placeholder="Ex: Belém - Umarizal" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-600">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">Descreva o que precisa</label>
+                    <textarea id="descricao" rows="4" placeholder="Detalhe as suas necessidades técnicas..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-600"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl transition-all shadow-lg text-lg">
+                    Enviar Solicitação via WhatsApp
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-900 border-t border-slate-800 py-12 text-center text-sm text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <div class="text-xl font-bold text-white">RIJTECH Engenharia</div>
+            <p>Tecnologia que conecta. Engenharia que entrega.</p>
+            <p class="text-xs text-slate-500">Belém - Pará | WhatsApp: (91) 99318-1583 | Instagram: @rijtechsolutions</p>
+            <div class="pt-4 text-xs text-slate-600">&copy; 2026 RIJTECH Engenharia. Todos os direitos reservados.</div>
+        </div>
     </footer>
 
+    <!-- SCRIPT DO FORMULÁRIO WHATSAPP -->
+    <script>
+        // Menu mobile toggle
+        document.getElementById('menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // WhatsApp Budget Form Handler
+        document.getElementById('budget-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const servico = document.getElementById('servico').value;
+            const cidade = document.getElementById('cidade_bairro').value || 'Não informada';
+            const descricao = document.getElementById('descricao').value || 'Nenhuma descrição adicional';
+
+            const mensagem = `Olá, sou ${nome} e quero solicitar um orçamento para ${servico}. WhatsApp: ${telefone}. Local: ${cidade}. Descrição: ${descricao}.`;
+            const numeroWhatsApp = '5591993181583';
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+        });
+    </script>
 </body>
 </html>
